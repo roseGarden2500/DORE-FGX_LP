@@ -16,6 +16,7 @@
             --text-main: #f8fafc;
             --text-sub: #94a3b8;
             --accent: #38bdf8;
+            --badge-bg: rgba(56, 189, 248, 0.1);
         }
 
         * {
@@ -59,24 +60,24 @@
             letter-spacing: 2px;
         }
 
+        /* ヒーローセクション（2カラム化） */
         .hero {
-            max-width: 900px;
-            margin: 4rem auto;
-            text-align: center;
+            max-width: 1200px;
+            margin: 2rem auto 4rem;
             padding: 0 1rem;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 2.5rem;
+            align-items: center;
         }
 
-        .hero-icon {
-            width: 120px;
-            height: 120px;
-            object-fit: contain;
-            margin-bottom: 2rem;
-            filter: drop-shadow(0 10px 20px rgba(56, 189, 248, 0.3));
+        .hero-text {
+            text-align: left;
         }
 
         .hero h1 {
-            font-size: 2.8rem;
-            line-height: 1.3;
+            font-size: 2.4rem;
+            line-height: 1.35;
             margin-bottom: 1.5rem;
             background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
             -webkit-background-clip: text;
@@ -84,7 +85,7 @@
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--text-sub);
             margin-bottom: 2.5rem;
         }
@@ -105,6 +106,149 @@
         .cta-btn:hover {
             background-color: var(--primary-hover);
             transform: translateY(-2px);
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            text-align: center;
+        }
+
+        .app-screenshot {
+            width: 100%;
+            max-width: 440px;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease;
+        }
+
+        .app-screenshot:hover {
+            transform: scale(1.02);
+        }
+
+        /* アプリ操作画面の解説セクション（ハイライト：比率を0.8fr 1.2frに変更しテキスト領域を広く確保） */
+        .highlight-section {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 3rem 2rem;
+            background-color: var(--card-bg);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .highlight-image {
+            text-align: center;
+        }
+
+        .highlight-image .app-screenshot {
+            max-width: 100%;
+        }
+
+        .highlight-badge {
+            display: inline-block;
+            background-color: var(--badge-bg);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-text h2 {
+            font-size: 2.1rem;
+            line-height: 1.35;
+            margin-bottom: 1.2rem;
+            color: #ffffff;
+        }
+
+        .highlight-text p {
+            color: var(--text-sub);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .highlight-list li {
+            position: relative;
+            padding-left: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
+            font-size: 0.98rem;
+        }
+
+        .highlight-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* 画面ギャラリーセクション */
+        .gallery-section {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 1rem;
+            text-align: center;
+        }
+
+        .gallery-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gallery-section p.gallery-sub {
+            color: var(--text-sub);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-card {
+            background-color: var(--card-bg);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 1px solid #334155;
+        }
+
+        .gallery-card .caption {
+            padding: 1.2rem;
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--text-main);
         }
 
         .features {
@@ -144,7 +288,7 @@
             font-size: 0.95rem;
         }
 
-        /* ガイドセクション（使い方・インストール等） */
+        /* ガイドセクション */
         .guide-section {
             max-width: 1000px;
             margin: 6rem auto;
@@ -309,6 +453,19 @@
             font-size: 0.9rem;
         }
 
+        @media (max-width: 900px) {
+            .hero, .highlight-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-text, .highlight-text {
+                text-align: center;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             .hero p { font-size: 1rem; }
@@ -325,13 +482,53 @@
         <a href="https://github.com/roseGarden2500/DORE-FGX_LP/releases/download/v1.0.0/DORE-FGX_v1.0.0.zip" class="cta-btn" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">ダウンロード</a>
     </header>
 
+    <!-- 1. ヒーローセクション（ファーストビュー） -->
     <section class="hero">
-        <img src="DORE-FGX-ICON.png" alt="DORE-FGX Icon" class="hero-icon">
-        <h1>文書の成り立ちを構造管理。<br>過程ごと丸ごと共有・引き継ぎ。</h1>
-        <p>文書作成の過程で参照した参考資料やWebサイトをツリー構造でスマートに紐付け。<br>「何を見てその文書を作ったのか」を簡単に振り返り、一歩進んだ知識共有を実現します。</p>
-        <a href="https://github.com/roseGarden2500/DORE-FGX_LP/releases/download/v1.0.0/DORE-FGX_v1.0.0.zip" class="cta-btn">最新版をダウンロード（無料）</a>
+        <div class="hero-text">
+            <h1>文書の成り立ちを構造管理。<br>丸ごと共有・引き継ぎ。</h1>
+            <p>文書作成の過程で参照した参考資料やWebサイトをツリー構造でスマートに紐付け。<br>「何を見てその文書を作ったのか」を簡単に振り返り、一歩進んだ知識共有を実現します。</p>
+            <a href="https://github.com/roseGarden2500/DORE-FGX_LP/releases/download/v1.0.0/DORE-FGX_v1.0.0.zip" class="cta-btn">最新版をダウンロード（無料）</a>
+        </div>
+        <div class="hero-image-wrapper">
+            <img src="DORE-FGX-Open.png" alt="DORE-FGX アプリ起動画面" class="app-screenshot">
+        </div>
     </section>
 
+    <!-- 2. ツリー構造ハイライトセクション -->
+    <section class="highlight-section">
+        <div class="highlight-image">
+            <img src="DORE-FGX-Using01.png" alt="ツリー構造でのドラッグ＆ドロップ配置画面" class="app-screenshot">
+        </div>
+        <div class="highlight-text">
+            <span class="highlight-badge">ツリー階層管理</span>
+            <!-- 意図しない「繋が」での改行を防ぐため <br> を明示的に指定 -->
+            <h2>ドラッグ＆ドロップで繋がる、<br>スマートなドキュメント連関</h2>
+            <p>メイン文書に参考資料を重ねてドロップするだけで、直感的に階層構造を構築。いつでもワンクリックで参照先へアクセスできます。</p>
+            <ul class="highlight-list">
+                <li><strong>多階層ツリー構造：</strong> 孫階層まで資料を整理してプロジェクトの全貌を可視化</li>
+                <li><strong>直感的なD&amp;D操作：</strong> エクスプローラーからの追加や階層の紐付けがスムーズ</li>
+                <li><strong>詳細メモの記録：</strong> 参照ページや参照目的を個別に書き留めて振り返りを容易に</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 3. 機能ギャラリー（新規追加＆パッケージ共有） -->
+    <section class="gallery-section">
+        <h2>柔軟な資料作成とパッケージ共有</h2>
+        <p class="gallery-sub">新規参考文書の作成から、他者へのスムーズな引き継ぎ機能まで完全網羅</p>
+        <div class="gallery-grid">
+            <div class="gallery-card">
+                <img src="DORE-FGX-Using02.png" alt="新規参考文書の追加画面">
+                <div class="caption">アプリ内からの新規参考文書作成・追加</div>
+            </div>
+            <div class="gallery-card">
+                <img src="DORE-FGX-Using03.png" alt="パッケージとしてのエキスポート・インポート画面">
+                <div class="caption">文書構造とファイルを丸ごとパッケージ化＆共有</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 特徴カード一覧 -->
     <section class="features">
         <div class="feature-card">
             <div class="feature-icon">🌳</div>
